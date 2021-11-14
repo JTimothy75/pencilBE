@@ -6,9 +6,11 @@ const handleCastErrorDB = (err) => {
 };
 
 const handleDublicateFieldsDB = (err) => {
-  const value = err.errmsg.match(/(["'])(\\?.)*?\1/)[0];
+  const value = JSON.stringify(err.keyValue)
+    .replace(/[" { }]/g, "")
+    .replace(/\:/, " ");
 
-  const message = `Dublicate field value ${value}. please use another value`;
+  const message = `Dublicate field value (${value}). please use another value`;
   return new AppError(message, 400);
 };
 
