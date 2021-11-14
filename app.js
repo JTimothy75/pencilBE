@@ -63,7 +63,8 @@ app.use("/api/v1/topic", topicRouter);
 
 app.get("*", function (req, res) {
   res.json({
-    response: "Welcome to pencil questions api",
+    response:
+      "Welcome to pencil questions api, You can learn more about how to use the api to create and query questions, topics, and lot from the documentation at https://documenter.getpostman.com/view/9798097/UVC8DmQb",
   });
 });
 
