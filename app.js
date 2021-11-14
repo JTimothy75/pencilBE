@@ -61,6 +61,12 @@ app.use(compression());
 app.use("/api/v1/question", questionRouter);
 app.use("/api/v1/topic", topicRouter);
 
+app.get("*", function (req, res) {
+  res.json({
+    response: "Welcome to pencil questions api",
+  });
+});
+
 app.use(errorController);
 
 module.exports = app;
